@@ -77,8 +77,10 @@ void sendValue()
  tempMeasure(); 
  waterMeasure();
 
- String str = "GET https://api.thingspeak.com/";
+ //need to connect thingspeak api 
+ String str = "GET https://api.thingspeak.com/"; 
  str+="update?api_key=";
+ //provide GET request
  str+="FO1M3RCDRXMB97O5&";
  str+="field1=" + String(water); 
  str+="&field2=" + String(temp) + " HTTP/1.1\r\n";
@@ -186,7 +188,7 @@ void sendSMS()
 {  gsm.println("AT+CMGF=1");
     delay(500);
     printSerialData();
-    gsm.println("AT+CMGS=\"+919987096856\"");
+    gsm.println("AT+CMGS=\"+9199870XXXXX\""); // provide phone Num: which will be received Warning SMS
     delay(2000);
     printSerialData();
     gsm.print("Warning! Water level value:");
